@@ -1,4 +1,44 @@
 class Pokemon {
+    #health = 100;
+    #level = 1;
+    static allPokemon = [];
+
+    constructor(name, type){
+        this.name = name
+        this.type = type
+        Pokemon.allPokemon.push(this)
+    }
+
+    get health(){
+        return this.#health;
+    }
+
+    get level(){
+        return this.#level
+    }
+
+    levelUp(){
+        this.#level ++
+        this.#health += 10
+        console.log(`${this.name} leveled up to level ${this.#level}!`)
+    }
+
+    isFainted(){
+        return this.#health <= 0
+    }
+
+    attack(targetPokemon){
+        targetPokemon.#health -= 10 * targetPokemon.#level
+        return `${this.name} attacked ${targetPokemon.name}!`
+    }
+
+    static getTotalPokemon(){
+        return Pokemon.allPokemon.length
+    }
+    
+    static findByName(name) {
+        return Pokemon.allPokemon.find((pokemon) => pokemon.name === name)
+    }
 
 }
 
