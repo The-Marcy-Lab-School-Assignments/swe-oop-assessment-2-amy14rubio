@@ -1,6 +1,8 @@
 class BankAccount {
   #balance = 0;
-  static #totalNumberOfAccounts = 0
+
+  static #totalNumberOfAccounts = 0;
+
   constructor(accountNumber, ownerName) {
     this.accountNumber = accountNumber;
     this.ownerName = ownerName;
@@ -34,6 +36,7 @@ class BankAccount {
 
 class Bank {
   accounts = [];
+
   constructor(name) {
     this.name = name;
   }
@@ -51,7 +54,7 @@ class Bank {
   }
 
   findAccount(accountNumber) {
-    return this.accounts.find((account) => account.accountNumber = accountNumber);
+    return this.accounts.find((account) => account.accountNumber === accountNumber);
   }
 }
 
