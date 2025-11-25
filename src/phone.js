@@ -19,7 +19,7 @@ class Phone {
   }
 
   unlock(password) {
-    return password === this.#password ? `Phone unlocked` : `Invalid Password`;
+    return password === this.#password;
   }
 }
 
